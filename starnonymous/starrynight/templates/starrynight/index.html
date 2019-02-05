@@ -1,0 +1,13 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ star }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'starrynight/css/default.css' %}">
+  </head>
+  <body>
+    The time is {{ star }}
+    <script src="{% static 'starrynight/js/field.js' %}"></script>
+  </body>
+</html>
