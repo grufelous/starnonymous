@@ -1,3 +1,18 @@
 body {
   background-color: #000;
+  color: #fff;
+}
+.star-container {
+  height: 100%;
+  width: 100%;
+}
+.star {
+  position: absolute;
+  /*top: 50px;
+  left: 80px;*/
+  color: #f0f;
+  background-color: #fff;
+  min-height: 10px;
+  min-width: 10px;
+  border-radius: 5px;
 }
