@@ -7,11 +7,16 @@
     <link rel="stylesheet" type="text/css" href="{% static 'starrynight/css/default.css' %}">
   </head>
   <body>
-    <p id="indicator"></p>
+    <!--<p id="indicator"></p>-->
     <div id="star-container">
       <p class="star"></p>
     </div>
     The time is {{ star }}
+    <form class="" action="" method="post">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input type="submit" name="" value="submit">
+    </form>
     <script src="{% static 'starrynight/js/field.js' %}"></script>
   </body>
 </html>

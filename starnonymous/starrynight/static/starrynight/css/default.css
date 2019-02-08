@@ -10,6 +10,8 @@ body {
   position: absolute;
   /*top: 50px;
   left: 80px;*/
+  padding: 0;
+  margin: 0;
   color: #f0f;
   background-color: #fff;
   min-height: 10px;

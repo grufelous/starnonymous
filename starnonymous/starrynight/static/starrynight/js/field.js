@@ -1,5 +1,5 @@
 starContainer = document.getElementById("star-container");
-addEventListener("mousemove", function(mouse_event) {
+addEventListener("click", function(mouse_event) {
   posX = mouse_event.clientX+"px"
   posY = mouse_event.clientY+"px"
   document.getElementById('indicator').innerHTML = posX + ", " + posY
