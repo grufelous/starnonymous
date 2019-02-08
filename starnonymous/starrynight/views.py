@@ -11,6 +11,14 @@ def index(request):
     star_form = StarForm()
     return render(request, 'starrynight/index.html', {'star': timezone.now(), 'form': star_form})
 
+def create_star(request):
+    post_data = request.POST
+    message = post_data['message']
+    x_coord = post_data['x-coord']
+    y_coord = post_data['y-coord']
+    time = timezone.now()
+    new_star = Star(star_label=message, star_time=time, xCoord=x_coord, yCoord=y_cord)
+    new_star.save()
 
 class IndexView(ListView):
     model = Star
