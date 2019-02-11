@@ -8,5 +8,7 @@ addEventListener("click", function(mouse_event) {
   new_star.style.top = posY
   new_star.style.left = posX
   starContainer.append(new_star)
+  document.getElementById('x-val').value = posX
+  document.getElementById('y-val').value = posY
   console.log(posX + ", " + posY)
 })

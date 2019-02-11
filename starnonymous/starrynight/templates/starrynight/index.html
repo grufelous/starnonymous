@@ -9,15 +9,16 @@
   <body>
     <!--<p id="indicator"></p>-->
     <div id="star-container">
-      <p class="star"></p>
+      {% for each_star in star_list %}
+        <p class="star" style="top: {{ each_star.yCoord }}; left: {{ each_star.xCoord }}">{{ each_star.star_label }}{{each_star.yCoord}}{{each_star.xCoord}}</p>
+      {% endfor %}
     </div>
     The time is {{ star }}
     <form class="" action="" method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="hidden" name="x-coord" value="">
-      <input type="hidden" name="y-coord" value="">
-      <input type="hidden" name="time" value="">
+      <input type="hidden" name="x-coord" id="x-val" value="">
+      <input type="hidden" name="y-coord" id="y-val" value="">
       <input type="submit" name="" value="submit">
     </form>
     <script src="{% static 'starrynight/js/field.js' %}"></script>
