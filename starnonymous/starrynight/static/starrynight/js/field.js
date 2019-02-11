@@ -1,5 +1,6 @@
-starContainer = document.getElementById("star-container");
-addEventListener("click", function(mouse_event) {
+//starContainer = document.getElementById("star-container");
+
+/*addEventListener("click", function(mouse_event) {
   posX = mouse_event.clientX+"px"
   posY = mouse_event.clientY+"px"
   document.getElementById('indicator').innerHTML = posX + ", " + posY
@@ -12,3 +13,9 @@ addEventListener("click", function(mouse_event) {
   document.getElementById('y-val').value = posY
   console.log(posX + ", " + posY)
 })
+*/
+$(document).ready(function() {
+  $("#star-field").on("mousemove", function(event) {
+    $("#star-field").append("<div class=\"floating-tooltip\">("+event.pageX+", "+event.pageY+")</span><br/>");
+  });
+});
