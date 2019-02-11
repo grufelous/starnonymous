@@ -11,18 +11,20 @@
   <body>
     <!--<p id="indicator"></p>-->
     <div id="star-field">
+      <div class="floating-form">
+        <form class="" action="" method="post">
+          {% csrf_token %}
+          {{ form }}
+          <input type="hidden" name="x-coord" id="x-val" value="">
+          <input type="hidden" name="y-coord" id="y-val" value="">
+          <input type="submit" name="" value="submit">
+        </form>
+      </div>
+      <div class="floating-tooltip"></div>
       {% for each_star in star_list %}
         <p class="star" style="top: {{ each_star.yCoord }}; left: {{ each_star.xCoord }}"></p>
       {% endfor %}
     </div>
-    The time is {{ star }}
-    <form class="" action="" method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="hidden" name="x-coord" id="x-val" value="">
-      <input type="hidden" name="y-coord" id="y-val" value="">
-      <input type="submit" name="" value="submit">
-    </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="{% static 'starrynight/js/field.js' %}"></script>

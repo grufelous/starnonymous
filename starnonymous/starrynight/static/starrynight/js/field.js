@@ -15,7 +15,25 @@
 })
 */
 $(document).ready(function() {
-  $("#star-field").on("mousemove", function(event) {
-    $("#star-field").append("<div class=\"floating-tooltip\">("+event.pageX+", "+event.pageY+")</span><br/>");
+  $field = $("#star-field");
+  $tt = $(".floating-tooltip");
+  $form = $(".floating-form");
+  $field.on("mousemove", function(event) {
+    $tt.html("("+event.pageX+", "+event.pageY+")");
+    $tt.css("top", event.pageY);
+    $tt.css("left", event.pageX);
+    $tt.css("display", "inline-block");
   });
+  $field.mouseleave(function() {
+    $tt.css("display", "none");
+  });
+  $field.click(function(event) {
+    $new_star = $("<p class='star'></p>");
+    $new_star.css("top", event.pageY);
+    $new_star.css("left", event.pageX);
+    $field.append($new_star);
+    $form.css("top", event.pageY);
+    $form.css("left", event.pageX);
+  });
+
 });
