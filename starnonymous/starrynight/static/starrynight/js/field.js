@@ -28,12 +28,15 @@ $(document).ready(function() {
     $tt.css("display", "none");
   });
   $field.click(function(event) {
-    $new_star = $("<p class='star'></p>");
+    $new_star = $("<div class='star'></div>");
     $new_star.css("top", event.pageY);
     $new_star.css("left", event.pageX);
     $field.append($new_star);
     $form.css("top", event.pageY);
     $form.css("left", event.pageX);
+    $m_box = $(".messag-in");
+    $m_box.focus();
+    // TODO: make it focus on text box automatically. Remove any chances of clicks on the form being treated the same as those on the page.
   });
 
 });
