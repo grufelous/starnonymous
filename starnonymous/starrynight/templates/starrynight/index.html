@@ -12,10 +12,10 @@
     <!--<p id="indicator"></p>-->
     <div id="star-field">
       <div class="floating-form">
-        <form class="test-x" action="" method="post">
+        <form action="" method="post">
           {% csrf_token %}
           {{ form }}
-          <input type="submit" name="" value="submit">
+          <input type="submit" name="" value="submit" id="submit_btn">
         </form>
       </div>
       <div class="floating-tooltip"></div>

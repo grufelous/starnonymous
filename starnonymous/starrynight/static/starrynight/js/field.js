@@ -18,25 +18,48 @@ $(document).ready(function() {
   $field = $("#star-field");
   $tt = $(".floating-tooltip");
   $form = $(".floating-form");
+  $submit_btn = $("#submit_btn");
+
   $field.on("mousemove", function(event) {
     $tt.html("("+event.pageX+", "+event.pageY+")");
     $tt.css("top", event.pageY);
     $tt.css("left", event.pageX);
     $tt.css("display", "inline-block");
   });
+
   $field.mouseleave(function() {
     $tt.css("display", "none");
   });
+
   $field.click(function(event) {
     $new_star = $("<div class='star'></div>");
-    $new_star.css("top", event.pageY);
-    $new_star.css("left", event.pageX);
+    //record click coordinates
+    $x = event.pageX;
+    $y = event.pageY;
+    //locate the required fields. Optimize later.
+    $xEntry = $("#x-coordinate");
+    $yEntry = $("#y-coordinate");
+    //set the coordinate fields' values
+    $xEntry.val($x);
+    $yEntry.val($y);
+    //position the new star
+    $new_star.css("top", $y);
+    $new_star.css("left", $x);
+    //add star to field
     $field.append($new_star);
-    $form.css("top", event.pageY);
-    $form.css("left", event.pageX);
-    $m_box = $(".messag-in");
-    $m_box.focus();
+    //turn off clicking - will be re-enabled when submitted, or when user clicks elsewhere
+    $field.off("click");
+    //place the form alongside click
+    $form.css("top", $y);
+    $form.css("left", $x);
+    // TODO: make DTF/SDTW work with time from jQuery
+    /*$m_box = $(".message-in");
+    $m_box.focus();*/
     // TODO: make it focus on text box automatically. Remove any chances of clicks on the form being treated the same as those on the page.
+  });
+
+  $submit_btn.click(function() {
+    $field.on("click");
   });
 
 });

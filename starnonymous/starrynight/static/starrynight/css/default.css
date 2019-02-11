@@ -36,7 +36,7 @@ body {
   background: #871818;
   border: 1px solid #442127;
   display: inline-block;
-  z-index: 10;
+  z-index: 2;
 }
 
 .star {
