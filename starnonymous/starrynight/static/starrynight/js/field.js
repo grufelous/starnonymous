@@ -59,6 +59,7 @@ $(document).ready(function() {
   });
 
   $submit_btn.click(function() {
+
     $field.on("click");
   });
 
