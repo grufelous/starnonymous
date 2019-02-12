@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.core import serializers
 import datetime
 from django.utils import timezone
 from django.views.generic import TemplateView, ListView
@@ -9,10 +10,8 @@ from .models import Star
 def index(request):
     star_form = StarForm()
     past_day = timezone.now()-datetime.timedelta(hours=23, minutes=59, seconds=59)
-    star_list = list(Star.objects.filter(star_time__gte=past_day))
-    print(star_list)
-    for each_star in star_list:
-        print(each_star.__dict__)
+    # star_list = Star.objects.filter(star_time__gte=past_day)
+    star_list = serializers.serialize("json", Star.objects.filter(star_time__gte=past_day), fields=('star_label', 'star_message', 'xCoord', 'yCoord', 'star_time'))
     return render(request, 'starrynight/index.html', {'star': timezone.now(), 'form': star_form, 'star_list': star_list})
 
 def create_star(request):

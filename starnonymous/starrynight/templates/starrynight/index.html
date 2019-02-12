@@ -9,7 +9,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
+    <!-- might need to remove the json_script and replace with a cleaning script of our own -->
+    {% comment %}{{ star_list | json_script:"star-data" }}{% endcomment %}
 
+    {{ star_list|escape }}
     <div id="star-field">
       <div class="floating-form">
         <form action="" method="post">
