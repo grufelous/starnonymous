@@ -8,11 +8,20 @@ from .forms import StarForm
 from .models import Star
 
 def index(request):
-    star_form = StarForm()
+    # star_form = StarForm()
     time_to_shine = timezone.now()-datetime.timedelta(hours=100, minutes=59, seconds=59)
     # star_list = Star.objects.filter(star_time__gte=past_day)
     star_list = serializers.serialize("json", Star.objects.filter(star_time__gte=time_to_shine), fields=('star_label', 'star_message', 'xCoord', 'yCoord', 'star_time'))
     print(star_list)
+    if request.method == 'POST':
+        star_form = StarForm(request.POST)
+        if star_form.is_valid():
+            star_input_data = star_form.save(commit=False)
+            star_input_data.star_time = timezone.now()
+            star_input_data.save()
+            # suitable return here
+    else:
+        star_form = StarForm()
     return render(request, 'starrynight/index.html', {'star': timezone.now(), 'form': star_form, 'star_list': star_list})
 
 def create_star(request):
