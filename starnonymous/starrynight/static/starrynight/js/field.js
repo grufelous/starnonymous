@@ -15,6 +15,9 @@
 })
 */
 $(document).ready(function() {
+  $star_data = $("#XD");
+  $star_parsed = JSON.parse($star_data);
+  console.log($star_parsed);
   $field = $("#star-field");
   $tt = $(".floating-tooltip");
   $form = $(".floating-form");

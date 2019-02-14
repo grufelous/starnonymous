@@ -9,9 +9,10 @@ from .models import Star
 
 def index(request):
     star_form = StarForm()
-    past_day = timezone.now()-datetime.timedelta(hours=23, minutes=59, seconds=59)
+    time_to_shine = timezone.now()-datetime.timedelta(hours=100, minutes=59, seconds=59)
     # star_list = Star.objects.filter(star_time__gte=past_day)
-    star_list = serializers.serialize("json", Star.objects.filter(star_time__gte=past_day), fields=('star_label', 'star_message', 'xCoord', 'yCoord', 'star_time'))
+    star_list = serializers.serialize("json", Star.objects.filter(star_time__gte=time_to_shine), fields=('star_label', 'star_message', 'xCoord', 'yCoord', 'star_time'))
+    print(star_list)
     return render(request, 'starrynight/index.html', {'star': timezone.now(), 'form': star_form, 'star_list': star_list})
 
 def create_star(request):

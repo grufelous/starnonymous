@@ -11,8 +11,7 @@
   <body>
     <!-- might need to remove the json_script and replace with a cleaning script of our own -->
     {% comment %}{{ star_list | json_script:"star-data" }}{% endcomment %}
-
-    {{ star_list|escape }}
+    {{ star_list | json_script:"XD" }}
     <div id="star-field">
       <div class="floating-form">
         <form action="" method="post">
