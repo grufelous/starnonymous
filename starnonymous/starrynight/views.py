@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 import datetime
 from django.utils import timezone
@@ -24,14 +24,29 @@ def index(request):
         star_form = StarForm()
     return render(request, 'starrynight/index.html', {'star': timezone.now(), 'form': star_form, 'star_list': star_list})
 
-def create_star(request):
-    post_data = request.POST
-    message = post_data['message']
-    x_coord = post_data['x-coord']
-    y_coord = post_data['y-coord']
-    time = timezone.now()
-    new_star = Star(star_label=message, star_time=time, xCoord=x_coord, yCoord=y_cord)
-    new_star.save()
+# def create_star(request):
+#     post_data = request.POST
+#     message = post_data['message']
+#     x_coord = post_data['x-coord']
+#     y_coord = post_data['y-coord']
+#     time = timezone.now()
+#     new_star = Star(star_label=message, star_time=time, xCoord=x_coord, yCoord=y_cord)
+#     new_star.save()
+
+def demo_view(request):
+    dict1 = {
+        "star1": {
+            "name": "Pratik",
+            "age": "222y"
+        },
+        "star2": {
+            "name": "Prateek",
+            "age": "222y"
+        },
+    }
+    return render(request, 'starrynight/demo.html', dict1)
+
+
 
 class IndexView(ListView):
     model = Star
