@@ -15,13 +15,13 @@
 })
 */
 $(document).ready(function() {
-  $star_data = $("#star-data");
-  /*$star_parsed = JSON.parse($star_data);*/
-  console.log($star_data);
   $field = $("#star-field");
   $tt = $(".floating-tooltip");
   $form = $(".floating-form");
   $submit_btn = $("#submit_btn");
+
+  var starJSON = document.getElementById('star-data').innerHTML
+  console.log(JSON.parse(starJSON))
 
   $field.on("mousemove", function(event) {
     $tt.html("("+event.pageX+", "+event.pageY+")");
