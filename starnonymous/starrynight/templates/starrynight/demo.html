@@ -1,10 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Demo page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     {{ some_data }}
+    <script type="text/javascript" id="j-data">
+      [{"model": "starrynight.star", "pk": 2, "fields": {"star_label": "Another star", "star_message": "Let the tables drop!", "star_time": "2019-02-12T09:13:44Z", "xCoord": "450", "yCoord": "400"}}, {"model": "starrynight.star", "pk": 3, "fields": {"star_label": "Newer star", "star_message": "Hmmm sup", "star_time": "2019-02-12T09:25:55Z", "xCoord": "40px", "yCoord": "600px"}}, {"model": "starrynight.star", "pk": 4, "fields": {"star_label": "Hmmmmmmmm", "star_message": "lolololol\"}<h1>HELLO</h1>", "star_time": "2019-02-12T14:23:39Z", "xCoord": "250", "yCoord": "300"}}, {"model": "starrynight.star", "pk": 5, "fields": {"star_label": "titlleeee", "star_message": "vhv", "star_time": "2019-02-15T06:17:05.879Z", "xCoord": "141", "yCoord": "261"}}]
+    </script>
+
+    <script type="text/javascript" src="{% static 'starrynight/js/demo.js' %}"></script>
   </body>
 </html>

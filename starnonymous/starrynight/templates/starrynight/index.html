@@ -12,9 +12,9 @@
     <!-- might need to remove the json_script and replace with a cleaning script of our own -->
     <!--{% comment %}{{ star_list | safe| json_script:"star-data" }}{% endcomment %}-->
 
-    <!--<script type="text/javascript" id="star-data">
-      {% comment %}{{ star_list|safe }}{% endcomment %}  <!--To be made safe while taking inputs, need filters
-    </script>-->
+    <script type="text/javascript" id="star-data">
+      {{ star_list|safe }}  <!--To be made safe while taking inputs, need filters-->
+    </script>
 
     <div id="star-field">
       <div class="floating-form">
