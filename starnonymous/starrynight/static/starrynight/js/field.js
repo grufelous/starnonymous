@@ -21,7 +21,11 @@ $(document).ready(function() {
   $submit_btn = $("#submit_btn");
 
   var starJSON = document.getElementById('star-data').innerHTML
-  console.log(JSON.parse(starJSON))
+
+  $sJSON = JSON.parse(starJSON)
+  $sJSON.each(function(i, v) {
+    console.log(i + ": " + "lol")
+  })
 
   $field.on("mousemove", function(event) {
     $tt.html("("+event.pageX+", "+event.pageY+")");

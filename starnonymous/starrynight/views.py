@@ -9,7 +9,7 @@ from .models import Star
 
 def index(request):
     # star_form = StarForm()
-    time_to_shine = timezone.now()-datetime.timedelta(hours=100, minutes=59, seconds=59)
+    time_to_shine = timezone.now()-datetime.timedelta(hours=1000, minutes=59, seconds=59)
     # star_list = Star.objects.filter(star_time__gte=past_day)
     star_list = serializers.serialize("json", Star.objects.filter(star_time__gte=time_to_shine), fields=('star_label', 'star_message', 'xCoord', 'yCoord', 'star_time'))
     print(star_list)
