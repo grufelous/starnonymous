@@ -21,10 +21,18 @@ $(document).ready(function() {
   $submit_btn = $("#submit_btn");
 
   var starJSON = document.getElementById('star-data').innerHTML
-
   $sJSON = JSON.parse(starJSON)
-  $sJSON.each(function(i, v) {
-    console.log(i + ": " + "lol")
+
+  console.log($sJSON[0].fields['star_label']);
+
+  $.each($sJSON, function(i, v) {
+    $star = $("#star"+i)
+    $star.css("top", v.fields['yCoord']+"px")
+    $star.css("left", v.fields['xCoord']+"px")
+    $label = document.querySelector('#star' + i + ' > p')
+    $label.innerHTML = v.fields['star_label']
+    $star_text = document.querySelector('#star' + i + ' > div')
+    $star_text.innerHTML = v.fields['star_message']
   })
 
   $field.on("mousemove", function(event) {
