@@ -26,13 +26,25 @@ $(document).ready(function() {
   console.log($sJSON[0].fields['star_label']);
 
   $.each($sJSON, function(i, v) {
-    $star = $("#star"+i)
+    console.log("Creating star #" + i + " \n")
+    $new_star = $("<div class='star'></div>")
+    $new_star.css("top", v.fields['yCoord']+"px")
+    $new_star.css("left", v.fields['xCoord']+"px")
+    $new_star_label = $("<p class='star-label'></p>")
+    $new_star_label.text(v.fields['star_label'])
+    $new_star_desc = $("<div class='star-text'></div>")
+    $new_star_desc.text(v.fields['star_message'])
+    $new_star.append($new_star_label, $new_star_desc)
+    $("#star-field").append($new_star)
+    /*$star = $("#star"+i)
     $star.css("top", v.fields['yCoord']+"px")
     $star.css("left", v.fields['xCoord']+"px")
     $label = document.querySelector('#star' + i + ' > p')
     $label.innerHTML = v.fields['star_label']
+    document.log($label.width())
+
     $star_text = document.querySelector('#star' + i + ' > div')
-    $star_text.innerHTML = v.fields['star_message']
+    $star_text.innerHTML = v.fields['star_message']*/
   })
 
   $field.on("mousemove", function(event) {
