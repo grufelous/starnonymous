@@ -18,7 +18,7 @@ $(document).ready(function() {
   $field = $("#star-field");
   $tt = $(".floating-tooltip");
   $form = $(".floating-form");
-  $submit_btn = $("#submit_btn");
+  $submit_btn = $("#submit-btn");
 
   var starJSON = document.getElementById('star-data').innerHTML
   $sJSON = JSON.parse(starJSON)

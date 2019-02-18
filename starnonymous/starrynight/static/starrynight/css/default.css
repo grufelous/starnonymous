@@ -36,7 +36,22 @@ body {
   background: #871818;
   border: 1px solid #442127;
   display: inline-block;
-  z-index: 2;
+  z-index: 4;
+}
+
+#message-title-box, #message-box, #submit-btn {
+  background-color: #000;
+  box-sizing: border-box;
+  display: block;
+  font-size: 8pt;
+  width: 14em;
+}
+
+#message-title-box {
+}
+
+#message-box {
+  height: 8em;
 }
 
 .star {
@@ -50,6 +65,7 @@ body {
   min-height: 3px;
   min-width: 3px;
   border-radius: 1px;
+  z-index: 3;
 }
 
 .star-label {
