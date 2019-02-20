@@ -61,7 +61,8 @@ $(document).ready(function() {
 
   $new_star = $("<div class='star'></div>");
 
-  $field.click(function(event) {
+  function field_click(event) {
+    alert("Click")
     $form.css("display", "inline-block")
     //record click coordinates
     $x = event.pageX;
@@ -86,17 +87,17 @@ $(document).ready(function() {
     /*$m_box = $(".message-in");
     $m_box.focus();*/
     // TODO: make it focus on text box automatically. Remove any chances of clicks on the form being treated the same as those on the page.
+  }
+  $submit_btn.click(function() {
+    $field.on("click", field_click());
   });
+
+  $field.click(field_click);
 
   $close_btn.click(function() {
     $form.css("display", "none")
     $new_star.remove()
-    $field.on("click")
+    $field.on("click", field_click)
   })
-
-  $submit_btn.click(function() {
-
-    $field.on("click");
-  });
 
 });
