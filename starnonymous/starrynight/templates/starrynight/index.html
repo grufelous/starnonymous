@@ -9,15 +9,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
-    <!-- might need to remove the json_script and replace with a cleaning script of our own -->
-    <!--{% comment %}{{ star_list | safe| json_script:"star-data" }}{% endcomment %}-->
-
     <script type="text/javascript" id="star-data">
       {{ star_list|safe }}
-    </script><!--To be made safe while taking inputs, need filters-->
+    </script><!-- Simple JS/HTML injections do not work - still would like to use filters to strip off unnecessary characters -->
 
     <div id="star-field">
       <div class="floating-form">
+        <div class="close-btn"></div>
         <form action="" method="post">
           {% csrf_token %}
           {{ form }}

@@ -19,6 +19,7 @@ $(document).ready(function() {
   $tt = $(".floating-tooltip");
   $form = $(".floating-form");
   $submit_btn = $("#submit-btn");
+  $close_btn = $(".close-btn");
 
   var starJSON = document.getElementById('star-data').innerHTML
   $sJSON = JSON.parse(starJSON)
@@ -58,8 +59,10 @@ $(document).ready(function() {
     $tt.css("display", "none");
   });
 
+  $new_star = $("<div class='star'></div>");
+
   $field.click(function(event) {
-    $new_star = $("<div class='star'></div>");
+    $form.css("display", "inline-block")
     //record click coordinates
     $x = event.pageX;
     $y = event.pageY;
@@ -84,6 +87,12 @@ $(document).ready(function() {
     $m_box.focus();*/
     // TODO: make it focus on text box automatically. Remove any chances of clicks on the form being treated the same as those on the page.
   });
+
+  $close_btn.click(function() {
+    $form.css("display", "none")
+    $new_star.remove()
+    $field.on("click")
+  })
 
   $submit_btn.click(function() {
 
